@@ -25,7 +25,7 @@ function drawCircle(radius) {
 function drawCircleWithDelay(radius) {
     setTimeout(function() {
         drawCircle(radius);
-        if (radius < 250) {
+        if (radius < 200) {
             drawCircleWithDelay(radius + 50);
         }
     }, 500);
