@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+.overflow-y {
+    overflow-y: auto; /* Dikey taşmayı engelle ve bir kaydırma çubuğu ekler */
+}
+
+.overflow-x {
+    overflow-x: auto; /* Yatay taşmayı engelle ve bir kaydırma çubuğu ekler */
+}
+
+.overflow {
+    overflow: auto; /* Hem dikey hem yatay taşmayı engelle ve bir kaydırma çubuğu ekler */
+}
+
+
 
 .navbar{
     background-color: #94674D !important;
