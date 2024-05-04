@@ -200,18 +200,6 @@ a.kutuyazı{
     }
 
 
-@media screen and (max-width: 992px) {
-    .sahne{
-        width: 400px;
-
-    }
-    .dikey{
-        width: 200px;
-    }
-    .container2{
-        width: 500px;
-    }
-  }
 
 
 @media screen and (max-width: 760px) {

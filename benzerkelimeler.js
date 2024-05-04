@@ -33,25 +33,38 @@ function shuffleArray(array) {
 const kutular = [kutu1, kutu2, kutu3, kutu4, kutu5, kutu6, kutu7, kutu8, kutu9,kutu10,kutu11,kutu12];
 
 // Kelimeleri tanımlayın
-const ayni_kelimeler = ["Masa-Masa",
-"Salkım-Salkım",
-"Sarkı-Sarkı",
-"Gözlük-Gözlük",
-"Kalem-Kalem",
-"Kuş-Kuş",
-"Bardak-Bardak",
-"Kapı-Kapı"];
+const ayni_kelimeler = ["Masa/Masa",
+"Salkım/Salkım",
+"Sarkı/Sarkı",
+"Gözlük/Gözlük",
+"Kalem/Kalem",
+"Kuş/Kuş",
+"Bardak/Bardak",
+"Kapı/Kapı",
+"kel/kel",
+"çorba/çorba",
+"güzel/güzel",
+"kes/kes"
+];
 
-const farkli_kelimeler = [    "Masa-Meze",
-"Meze-Mutfak",
-"Yiğit-Yitik",
-"Sarkı-Salkım",
-"Gözlük-Gümüş",
-"Kalem-Kütüphane",
-"Kuş-Kış",
-"Emek-Ekmek",
-"Biberon-Biber",
-"Kene-Kemer", "esnaf/esraf", "masa/maza"];
+const es_sesli = [
+    "ak/al",
+    "bin/bit",
+    "gör/gür",
+    "el/öl",
+    "uzun/üsün",
+    "yol/yul",
+    "saat/şat",
+    "kap/kab",
+    "su/sü",
+    "kırık/kürük",
+    "yak/yık",
+    "kum/köm",
+    "baş/boş",
+    "kıyı/küyü",
+    "göl/gül"
+  ];
+  
 
 // Rastgele bir eleman seçen fonksiyon
 function randomEleman(dizi) {
@@ -60,22 +73,18 @@ function randomEleman(dizi) {
 
 // Kutulara kelimeleri yerleştiren fonksiyon
 
-    function kelimeleriGöster() {
-        // Aynı kelimelerin dizisini karıştır
-        shuffleArray(ayni_kelimeler);
-        // Farklı kelimelerin dizisini karıştır
-        shuffleArray(farkli_kelimeler);
-    
-        // Aynı kelimeleri kutulara sırayla ata
-        for (let i = 0; i < kutular.length; i++) {
-            kutular[i].innerHTML = farkli_kelimeler[i % farkli_kelimeler.length];
-        }
-    
-        // Rastgele bir kutuya farklı kelime ata
-        const randomIndex = Math.floor(Math.random() * kutular.length);
-        kutular[randomIndex].innerHTML = ayni_kelimeler[randomIndex % ayni_kelimeler.length];
-    }
-    
+function kelimeleriGöster() {
+    const tumKelimeler = [...es_sesli, ...ayni_kelimeler]; // Tüm kelimeleri birleştir
+
+    shuffleArray(tumKelimeler); // Tüm kelimeleri karıştır
+
+    kutular.forEach((kutu, index) => {
+        kutu.innerHTML = tumKelimeler[index];
+        kutu.style.backgroundColor = "transparent"; // Önceki rengine geri dön
+        kutu.classList.remove("tiklandi");
+    });
+}
+
     //zamanlayıcı başlangıç
 
 
@@ -111,7 +120,7 @@ kutular.forEach(kutu => {
     kutu.addEventListener('click', function(event) {
         event.preventDefault(); // Tıklamanın varsayılan davranışını engelle
 
-        if (farkli_kelimeler.includes(this.innerHTML)) {
+        if (es_sesli.includes(this.innerHTML)) {
             this.style.backgroundColor = "blue"; // Doğru kelimeyi tespit edince arka plan rengini değiştir
             tümKelimelerTıklandı(); // Tüm kelimelerin tıklandığını kontrol et
         }
@@ -123,7 +132,7 @@ function tümKelimelerTıklandı() {
     let tümTıklandıMı = true;
 
     for (let i = 0; i < kutular.length; i++) {
-        if (farkli_kelimeler.includes(kutular[i].innerHTML) && kutular[i].style.backgroundColor !== "blue") {
+        if (es_sesli.includes(kutular[i].innerHTML) && kutular[i].style.backgroundColor !== "blue") {
             tümTıklandıMı = false;
             break; // Tüm farklı kelimeler tıklanmadıysa döngüyü sonlandır
         }
