@@ -195,6 +195,9 @@ a.kutuyazı{
     .dikey{
         width: 200px;
     }
+    .container2{
+        width: auto;
+    }
   }
 
 
@@ -205,6 +208,9 @@ a.kutuyazı{
     }
     .dikey{
         width: 200px;
+    }
+    .container2{
+        width: auto;
     }
   }
   
