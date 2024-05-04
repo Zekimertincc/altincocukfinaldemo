@@ -16,6 +16,7 @@ body{
     padding-top: 60px;
     margin-left: 40px;
     margin-right: 40px;
+    width: auto;
     
   }
 
@@ -44,7 +45,7 @@ a.kutuyazı{
     position: relative;
     top:10px ;
     color: white;
-    font-size: smaller;
+    font-size: 12px;
 }
 
 .sahne{
@@ -195,5 +196,18 @@ a.kutuyazı{
         width: 200px;
     }
   }
+
+
+@media screen and (max-width: 760px) {
+    .sahne{
+        width: 300px;
+
+    }
+    .dikey{
+        width: 200px;
+    }
+  }
+  
+  
   
   
